@@ -1,2 +1,2 @@
-#!/in/bash
+#!/bin/bash
 mv -a *U... /tmp/u
