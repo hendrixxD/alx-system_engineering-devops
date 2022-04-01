@@ -1,0 +1,2 @@
+#!/bin/bash
+chmode --reference=olleh hello
