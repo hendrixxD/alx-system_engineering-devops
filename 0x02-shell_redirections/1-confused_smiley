@@ -1,2 +1,3 @@
 #!/bin/bash
-"(Ã”o)'
+echo "\"(Ã”o)'"
+chmod u+x 1-confused_smiley
