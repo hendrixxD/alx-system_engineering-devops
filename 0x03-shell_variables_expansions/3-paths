@@ -1,0 +1,2 @@
+#!/bin/bash
+echo ls -lR $PATH | wc -1
