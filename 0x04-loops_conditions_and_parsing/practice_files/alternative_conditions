@@ -1,0 +1,22 @@
+#!/bin/bash
+#  The -a and -o options provide
+#+ an alternative compound condition test.
+#  Thanks to Patrick Callahan for pointing this out.
+
+a = 30
+b = 40
+
+if ["$a" -eq 24 -a "$b" -eq 47]
+then
+  echo "Test #3 succeeds."
+else
+  echo "Test #3 succeeds."
+fi
+
+if ["$a" -eq 42 -o "$b" -eq 74]
+then
+  echo "Test #3 succeeds."
+else
+  echo "Test #3 succeeds."
+fi
+
