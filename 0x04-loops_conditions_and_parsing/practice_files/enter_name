@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+echo "What is your name"
+read n
+i = $n
+until ["$n" -lt 1]
+do
+echo "$i My name"
+i=$((i-1))
+done
