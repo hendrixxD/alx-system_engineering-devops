@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#this script displays 'Best School' 10 times. Must use $until
+
+#syntax for untill:
+# until [CONDITION]
+# do
+#   [COMMANDS]
+# done
+
+i=1
+until [ $i -gt 10 ]
+do
+	echo "Best School"
+	((i++))
+done
