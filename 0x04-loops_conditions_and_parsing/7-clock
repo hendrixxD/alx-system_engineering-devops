@@ -6,11 +6,11 @@
 hr=0
 while [ $hr -le 12 ]
 do
-       	echo $hr
+	echo "Hour: " $hr
 	min=1
 	while [ $min -le 59 ]
 	do
-	       	echo $min
+		echo $min
 		((min++))
 	done
 	 ((hr++))
