@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-#this script make all files executable
-for i in pwd;do
+#this script displays all files with `-`
+
+for file in $(pwd)
+do
 	ls | grep -
 done
