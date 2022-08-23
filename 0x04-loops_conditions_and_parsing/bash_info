@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#displays vesrions of bash from 0-6
+
+for i in {0..5}
+do
+	echo "BASH_VERSINFO[$i] = ${BASH_VERSINFO[$i]}"
+done
