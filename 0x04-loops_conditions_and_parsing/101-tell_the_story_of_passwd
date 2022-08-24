@@ -8,7 +8,7 @@
 i=$(/etc/passwd)
 while i
 do
-	IFS=: read -r USER f2 f3 f4 f5 f6 f7
-	echo "The user $USER is part of the $f4 gang, lives in $f6 and rides $f7. $f3 place is protected by the passcode $f2, more info about the user here: $f5"
+	IFS=: read -r f1 f2 f3 f4 f5 f6 f7
+	echo "The user $f1 is part of the $f4 gang, lives in $f6 and rides $f7. $f3 place is protected by the passcode $f2, more info about the user here: $f5"
 	((i++))
 done
