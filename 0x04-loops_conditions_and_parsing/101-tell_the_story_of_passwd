@@ -5,10 +5,7 @@
 #The user USERNAME is part of the GROUP_ID gang, lives in HOME_DIRECTORY and rides COMMAND/SHELL. 
 #USER ID's place is protected by the passcode PASSWORD, more info about the user here: USER ID INFO
 
-i=$(/etc/passwd)
-while i
+while IFS=":" read -r USERNAME PASSWORD USER_ID GROUP_ID USER_INFO HOME_DIR SHEL
 do
-	IFS=":" read -r USERNAME PASSWORD USER_ID GROUP_ID USER_INFO HOME_DIR SHEL
 	echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIR and rides $SHEL. $USER_ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_INFO"
-	((i++))
-done
+done < /etc/passwd
