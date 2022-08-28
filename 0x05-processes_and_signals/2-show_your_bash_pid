@@ -2,5 +2,5 @@
 #displays the line containing the "bash" word
 # shellcheck disable=SC2009
 
-ps faux | grep bash
+ps faux | grep "bash"
 
