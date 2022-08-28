@@ -8,4 +8,4 @@
 #To get information about all processes running on the system, use ps -A:
 #The most used options with ps are a, u and x. This displays all processes running for all users on your system,# along with useful information such as the username of the process′ owner, CPU loads, the starting time of the #process, the command that initiated the process, etc.
 
-ps aux
+ps -feux
