@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Script that displays it own PID
+
+$BASHPID
