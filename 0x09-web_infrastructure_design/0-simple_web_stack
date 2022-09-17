@@ -1,0 +1,50 @@
+https://drive.google.com/file/d/1jwHwcr-Lqj5KgxAQxeL7U03tgEL5zllJ/view?usp=sharing
+
+
+1.What is a server?
+
+  A server is a software or a hardware device that accepts responds to requests made over a network.
+
+2.Role of domain name.
+  
+  The domain name identify the computer (network and services) with a
+  text-basedlabel that is human readable, easier to memorise than the
+  numerical addresses used in the Interner Protocol.
+
+3.What type of DNS record www is in www.foobar.com?
+
+  CNAME <Connical Name>
+
+4.What is the role of  Web server
+ 
+  The Web Server role primarily is to process and
+  manage HTTP/HTTPS requests and responses from the client system.
+
+5.What is the role of the application server?
+
+  its fundamental job is to provide its client with
+  access to what is commonly called <em>business logic</em>
+  which generates dynamic content.
+
+6.Whats the role of Database?
+
+  The database recieves, stores, search, process and send back required response.
+
+
+Issues With This Infrastructure: 
+
+SPOF:
+single point of failure is an integral part of
+any running system and so, if it fails, the entire system crashes.
+this is an undesirable effect for high achieving organisations as it
+breaks the goal of high availabilty and reliability.
+
+Downtime:
+deploying new updates generally is a thedious task and engaging activity.
+and so, servers are restarted and if no proper notice is issued to clients
+or provisions arent met to accomodate the next 24hrs usuallly, clients may lose data and info.
+
+Traffic:
+assuming there was a massive and overwhelming traffic
+the lone server wont contain the load of requests it has
+to process, and so its optimal speed decreases or even crashes. 
