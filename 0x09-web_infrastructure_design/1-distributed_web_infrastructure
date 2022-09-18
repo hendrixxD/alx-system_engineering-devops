@@ -1,0 +1,74 @@
+https://drive.google.com/file/d/1HIBUFPCWba6YWT3CjZx2joZ3YaQ4XpzG/view?usp=sharing
+
+
+1.
+For every additional element, why you are adding it:
+
+ An aditional server:
+   to improve reliability and accecebility to avoid an overload of the server
+
+ A new loadbalancer:
+   for almost an equal load distribution between the the two servers
+
+
+
+
+2.
+What distribution algorithm your load balancer is configured with;
+
+	Round Robin
+
+And how it works?
+
+	Clients request are assigned to each server in turn.
+	The algorithm instructs the load balancer to reiterate the process again.
+
+
+  
+3.
+Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both?
+
+  Active-Passive
+
+
+  Active-Active setup:
+    in active-active setup, there are multiple nodes workin together, distributing equal workload bewtween servers.
+
+  Where as;
+  Active-Passive setup:
+    In Active-Passive setup, there is just one Node actively working(active) and the the second server(Passive) which accepts
+    load when the acive server is overloaded
+
+
+
+4.
+How a database Primary-Replica (Master-Slave) cluster works?
+
+  Master-Slave replication enables data from one database server{master} to be replicated to one or more other database servers(The slaves).
+
+  the slave database serves as the backup for the master database.
+
+
+5.
+What is the difference between the Primary node and the Replica node in regard to the application?
+  
+  The primary node the main server which is been used, the replica node is the server which serves as the backup{passive} to avoid SPOF in the  primary node.
+
+
+
+SPOF:
+  
+  the load balancer here is a potential single point of failure, beacuse it is in active-passive state and so, if it fails there wont be any
+  backup of data.
+
+Security issues (no firewall, no HTTPS):
+
+  The absence of Firewalls or Secure HTTP {HTTPS} to filter requests coming in from the public network
+  to the private networks exposes the system to cyber threats which will impact the system negatively.
+
+
+No monitoring:
+
+  The absence of system monitoring software/tools which provides metrics
+  maintenance status and other info will impact the system's High Availabity and reliability.
+
