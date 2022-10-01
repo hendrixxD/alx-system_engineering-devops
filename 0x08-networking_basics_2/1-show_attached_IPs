@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#A script that displays the IP the program is running on
+
+
+
+ifconfig | grep -oP 'inet addr:\K[0-9.]*'
