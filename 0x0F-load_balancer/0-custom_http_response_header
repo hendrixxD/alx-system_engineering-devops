@@ -1,31 +1,15 @@
 #!/usr/bin/env bash
-#configuring a new ubuntu server
+#Configuring an ubuntu server
 
-sudo apt-get update
-sudo apt-get install -y nginx
-
-sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
-#sudo mv index.nginx-debian.html /var/www/html
-echo "page not found" > /var/www/html/404.html
-
-echo "server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-
-    root /var/www/html;
-    index index.html;
-    add_header X-Served-By $HOSTNAME;
-    
-    location /redirect_me {
-        return 301 https://github.com/hendrixxD;
-    }
-
-    error_page 404 /404.html;
-    location = /404 {
-        root /var/www/html;
-        internal;
-    }
-}" > default
-sudo mv -f default /etc/nginx/sites-available/default
-
-sudo service nginx restart
+apt-get update 
+apt-get install -y nginx
+service nginx start
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+sed -i "/server_name _;/a \
+	\\\n\terror_page 404 /404.html; \
+	\n\n\tadd_header X-Served-By: $(hostname); \
+	\n\n\tlocation /redirect_me { \
+	\n\t\treturn 301 https://www.linkedin.com/in/valentine-chidubem-9a076620a; \
+	\n\t}" /etc/nginx/sites-available/default
+service nginx restart
