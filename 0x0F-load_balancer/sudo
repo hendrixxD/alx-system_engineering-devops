@@ -1,0 +1,18 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index index.html;
+    add_header X-Served-By persistent-hostname;
+    
+    location /redirect_me {
+        return 301 https://github.com/hendrixxD;
+    }
+
+    error_page 404 /404.html;
+    location = /404 {
+        root /var/www/html;
+        internal;
+    }
+} /etc/nginx/sites-available/default

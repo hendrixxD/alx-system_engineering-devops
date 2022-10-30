@@ -5,8 +5,10 @@ sudo apt-get update
 sudo apt-get install -y nginx
 
 sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
-sudo echo "page not found" > /var/www/html/404.html
-sudo echo "server {
+#sudo mv index.nginx-debian.html /var/www/html
+echo "page not found" > /var/www/html/404.html
+
+echo "server {
     listen 80 default_server;
     listen [::]:80 default_server;
 
@@ -23,6 +25,7 @@ sudo echo "server {
         root /var/www/html;
         internal;
     }
-}" > /etc/nginx/sites-available/default
+}" > default
+sudo mv -f default /etc/nginx/sites-available/default
 
 sudo service nginx restart
