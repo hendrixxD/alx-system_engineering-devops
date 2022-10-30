@@ -4,21 +4,25 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
-echo "page not found" > /var/www/html/404.html
-echo "server {
-              listen 80 default_server;
-	      listen [::]:80 default_server;
+sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo echo "page not found" > /var/www/html/404.html
+sudo echo "server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
 
-              root /var/www/html;
-              index index.html;
-              location /redirect_me {
-                  return 301 https://github.com/hendrixxD;
-              }
-              error_page 404 /404.html;
-              location = /404/html {
-                  internal;
-              }
-              add_header X-Served-By $HOSTNAME;
-      }" > /etc/nginx/sites-available/default
-service nginx restart
+    root /var/www/html;
+    index index.html;
+    add_header X-Served-By $HOSTNAME;
+    
+    location /redirect_me {
+        return 301 https://github.com/hendrixxD;
+    }
+
+    error_page 404 /404.html;
+    location = /404 {
+        root /var/www/html;
+        internal;
+    }
+}" > /etc/nginx/sites-available/default
+
+sudo service nginx restart
