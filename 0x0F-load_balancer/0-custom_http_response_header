@@ -12,4 +12,4 @@ sed -i "/server_name _;/a \
 	\n\n\tlocation /redirect_me { \
 	\n\t\treturn 301 https://github.com/hendrixxD; \
 	\n\t}" /etc/nginx/sites-available/default
-service nginx restart
+sudo service nginx restart
