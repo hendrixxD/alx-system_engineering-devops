@@ -1,11 +1,12 @@
 #!/usr/bin/env/ bash
 #installing nginx
 
-sudo apt-get update
-sudo apt-get install -y nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
 
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo ufw allow 'Nginx HTTP'
 
-sed -i "/server_name _;/a \\\n\tlocation /redirect_me {\n\t\treturn 301 https://www.linkedin.com/in/valentine-chidubem-9a076620a;\n\t}" /etc/nginx/sites-available/default
+echo "Hello World!" | sudo tee /var/www/html/index
+sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://https://github.com/hendrixxD/ permanent;' /etc/nginx/sites-available/default
 
-service nginx restart
+sudo service nginx restart
