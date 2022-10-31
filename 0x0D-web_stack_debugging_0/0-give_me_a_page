@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-#webstack debugging #0
+#webstack debugging
 
-service apache2 start
+service apache start
