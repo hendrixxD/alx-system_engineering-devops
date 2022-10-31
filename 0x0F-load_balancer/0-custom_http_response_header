@@ -10,6 +10,6 @@ sed -i "/server_name _;/a \
 	\\\n\terror_page 404 /404.html; \
 	\n\n\tadd_header X-Served-By: $(hostname); \
 	\n\n\tlocation /redirect_me { \
-	\n\t\treturn 301 https://www.linkedin.com/in/valentine-chidubem-9a076620a; \
+	\n\t\treturn 301 https://github.com/hendrixxD; \
 	\n\t}" /etc/nginx/sites-available/default
 service nginx restart
