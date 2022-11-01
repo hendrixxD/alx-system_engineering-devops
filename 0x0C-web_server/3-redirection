@@ -4,9 +4,6 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 
-sudo ufw allow 'Nginx HTTP'
-
-echo "Hello World!" | sudo tee /var/www/html/index
-sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://https://github.com/hendrixxD/ permanent;' /etc/nginx/sites-available/default
-
+sudo echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo sed -i "/server_name _;/a \\\n\tlocation /redirect_me {\n\t\treturn 301 https://https://github.com/hendrixxD;\n\t}" /etc/nginx/sites-available/default
 sudo service nginx restart
