@@ -1,10 +1,19 @@
-#!/usr/bin/env/ bash
-#installing nginx
+#!/usr/bin/env bash
+# Configures an Nginx server so that /redirect_me redirects to another page.
+# The redirection is configured as a "301 Moved Permanently"
 
-sudo apt-get -y update
-sudo apt-get -y install nginx
+sudo apt-get update
+sudo apt-get install -y nginx
 
-ufw allow 'Nginx HTTP'
-echo "Hello World!" > /var/www/html/index.html
-sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.github.com/hendrixxD;'/etc/nginx/sites-available/default
-service nginx start
+echo "Hello World" > /var/www/html/index.html
+printf %s "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root   /etc/nginx/html;
+    index  index.html index.htm;
+    location /redirect_me {
+        return 301 http://github.com/hendrixxD/;
+    }
+}" > /etc/nginx/sites-available/default
+
+sudo service nginx start
