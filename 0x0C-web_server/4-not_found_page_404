@@ -1,20 +1,12 @@
 #!/usr/bin/env bash
-# configures an Nginx server to have a custom 404 page that contains the string 'Ceci n'est pas une page'
-
+# script to create a custom 404 page
 sudo apt-get -y update
 sudo apt-get -y install nginx
 
-
-ufw allow 'Nginx HTTP'
-echo 'Hello World' > /var/www/html/index.html
-sudo sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://github.com/hendrixxD permanent;' /etc/nginx/sites-available/default
-<<<<<<< HEAD
-echo "Ceci n'est pas une page" > /var/www/html/404.html
-sudo sed -i '/server_name _;/a error_page 404 /404.html;\nlocation = /404.html {\nroot /etc/nginx/html;\ninternal;\n}' /etc/nginx/sites-available/default
-=======
-
-echo "Ceci n'est pas une page" > /var/www/html/404.html
-sudo sed -i '/server_name _;/a error_page 404 /404.html;\nlocation = /404.html {\nroot /etc/nginx/html;\ninternal;\n}' /etc/nginx/sites-available/default
-
->>>>>>> dee0ee1eb41f7f51d59085ae278a54979019cdda
+ERR="404.html"
+sudo echo "Ceci n'est pas une page" > $ERR
+sudo mv $ERR /var/www/html/
+sudo sed -i "s/#error_page/error_page/" /etc/nginx/sites-available/default
 sudo service nginx restart
+sudo service nginx reload
+
