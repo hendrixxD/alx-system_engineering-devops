@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# display information for subdomains
+
+subdomain_info() {
+    
+    record=$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk '{printf "%s", $4}')
+    ip=$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk '{printf "%s", $5}')
+}
+
+if [ -z "$2" ];
+then
+    for sub in 'www' 'lb-01' 'web-01' 'web-02'
+    do
+        subdomain_info "$1" "$sub"
+    done
+else
+    subdomain_info "$1" "$2"
+fi
