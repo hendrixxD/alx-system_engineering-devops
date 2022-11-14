@@ -34,22 +34,22 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 frontend http_front
         bind *:80
-        #mode http
+        mode http
         bind *:443 ssl crt /etc/letsencrypt/live/www.globalhendrixx.tech/fullchain.pem
-
-        # Redirect if HTTPS is *not* used
         redirect scheme https code 301 if !{ ssl_fc }
 
         # Test URI to see if its a letsencrypt request
-        acl letsencrypt-acl path_beg /.github.com/hendrixxD/
+        acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         use_backend letsencrypt-backend if letsencrypt-acl
 
-        stats uri /haproxy?stats
+        # stats uri /haproxy?stats
         default_backend http_back
 
-backend http_back
+backend letsencrypt-backend
         server letsencrypt 127.0.0.1:8888
 
+backend http_back
+        mode http
         balance roundrobin
         server 46332-web-01 3.235.25.224:80 check
         server 46332-web-02 18.206.207.50:80 check
