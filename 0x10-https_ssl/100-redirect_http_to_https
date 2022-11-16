@@ -35,23 +35,23 @@ defaults
 
 frontend http_front
         bind *:80
-        redirect scheme https code 301 if !{ ssl_fc }
+        # redirect scheme https code 301 if !{ ssl_fc }
         # http-request redirect scheme https unless { ssl_fc }
         # http-request redirect scheme https code 301
         http-request set-header X-Forwarded-Proto http
         default_backend http_back
 
 frontend https_front
-        bind *:443 ssl crt /etc/letsencrypt/live/www.globalhendrixx.tech/fullchain.pem
+        bind *:443 ssl crt /etc/ssl/www.globalhendrixx.tech/www.globalhendrixx.tech.pem
         http-request set-header X-Forwarded-Proto https
-        acl letsencrypt-acl path_beg /.well-known/acme-challenge/
-        use_backend letsencrypt-backend if letsencrypt-acl
-
+        redirect scheme https code 301 if !{ ssl_fc }
+        # acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+        # use_backend letsencrypt-backend if letsencrypt-acl
         # stats uri /haproxy?stats
         default_backend http_back
 
-backend letsencrypt-backend
-        server letsencrypt 127.0.0.1:8888
+#backend letsencrypt-backend
+        #server letsencrypt 127.0.0.1:8888
 
 backend http_back
         mode http
