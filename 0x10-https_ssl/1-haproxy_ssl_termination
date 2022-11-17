@@ -42,7 +42,7 @@ frontend http_front
         default_backend http_back
 
 frontend https_front
-        bind *:443 ssl crt /etc/ssl/www.globalhendrixx.tech/www.globalhendrixx.tech.pem
+	bind *:443 ssl crt /etc/letsencrypt/live/www.globalhendrixx.tech-0001/fullchain.pem
         http-request set-header X-Forwarded-Proto https
         redirect scheme https code 301 if !{ ssl_fc }
         # acl letsencrypt-acl path_beg /.well-known/acme-challenge/
