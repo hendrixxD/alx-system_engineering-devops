@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# a script that configures a container to run as an nginx userlistening on all IP's on port 8080
+
+#!/usr/bin/env bash
+# runs nginx as nginx
+pkill apache2
+chown nginx:nginx /etc/nginx/nginx.conf
+chmod 777 /etc/nginx/nginx.conf
+sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+sudo -u nginx service nginx start
