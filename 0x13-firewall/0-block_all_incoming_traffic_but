@@ -1,0 +1,15 @@
+sudo apt update
+sudo apt update
+sudo apt install ufw
+sudo ufw app list
+sudo ufw allow OpenSSH
+sudo ufw allow 22
+sudo ufw allow ssh
+sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 80
+sudo ufw allow http
+sudo ufw allow 'Nginx HTTPS'
+sudo ufw allow 443
+sudo ufw allow https
+sudo ufw enable
+sudo ufw status verbose
